@@ -5,6 +5,12 @@ $(document).ready(function(){
         value = value + +num;
         $('.progress-bar').width(value.toString()+'%'); 
     })
+    $("#login").click(function () {
+        $('.progress-bar').width('50%'); 
+        if (($("#usr").val() == "Shannon") && ($("#pwd").val() == "password123")) {
+        	alert("Success!");
+        }
+    })
 });
 
 function addNumbers(num1, num2) {
