@@ -1,4 +1,15 @@
+
+var list = [
+    "hi",
+    "hello",
+    "howdy"
+];
+
 $(document).ready(function(){
+    $("#enterTask").click(function(){
+        list.push($("#newTask").val());
+        $('#taskList').html(list);
+    })
     $("button").click(function () {
     	var value = 0;
         var num =  $(this).attr('value');
