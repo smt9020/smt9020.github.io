@@ -5,10 +5,17 @@ var list = [
     "howdy"
 ];
 
+var htmlstring = "";
+
 $(document).ready(function(){
+    for (var i = 0; i < list.length; i++) {
+           htmlstring = htmlstring + '<li class="list-group-item">' + list[i] +'</li>';
+    }
+    $('#taskList').html(htmlstring);
     $("#enterTask").click(function(){
         list.push($("#newTask").val());
-        $('#taskList').html(list);
+        htmlstring = htmlstring + '<li class="list-group-item">' + $("#newTask").val() +'</li>';
+        $('#taskList').html(htmlstring);
     })
     $("button").click(function () {
     	var value = 0;
