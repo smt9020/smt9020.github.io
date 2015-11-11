@@ -1,0 +1,22 @@
+{
+  "name": "smt9020.github.io",
+  "version": "1.0.0",
+  "description": "personal web page",
+  "main": "datestmp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smt9020/smt9020.github.io.git"
+  },
+  "author": "Shannon Trudeau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smt9020/smt9020.github.io/issues"
+  },
+  "homepage": "https://github.com/smt9020/smt9020.github.io#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
