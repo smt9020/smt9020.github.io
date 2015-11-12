@@ -39,7 +39,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('fileinclude', function() {
-  gulp.src(['index.html', 'menuone.html'])
+  gulp.src(['index.html', 'random.html', 'blog.html'])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
@@ -48,4 +48,4 @@ gulp.task('fileinclude', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'scripts', 'fileinclude', 'watch']); 
+gulp.task('default', ['lint', 'scripts', 'fileinclude']); 

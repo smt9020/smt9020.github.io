@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Shannon M Trudeau</title>
+  <title>Shannon Rocks!</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div class="container">
+<div ng-app="" class="container">
 
   <div class="row">
     <div class="col-md-12">
@@ -28,10 +28,10 @@
                 <div>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Profile</a></li>
-                        <li><a href="menuone.html">Resume</a></li>
-                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="index.html">Resume</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="index.html">Contact</a></li>
-                        <li><a href="menuone.html">Random</a></li>
+                        <li><a href="random.html">Random</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,8 +76,8 @@
         <!--<p><span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;(585) 489-5146</p>-->
         <p><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;https://github.com/smt9020</p>
         <!--<p><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;1260 Lehigh Station Road, Apartment 401, Henrietta, NY 14467</p>-->
-        <p><span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;Linked In</p>
-        <a class="btn btn-large btn-shannon" href="resume.pdf">Download Resume!</a>
+        <p><span class="glyphicon glyphicon-link"></span>&nbsp;&nbsp;<a href="http://www.linkedin.com/pub/shannon-trudeau/50/570/186">Linked In</a></p>
+        <a class="btn btn-large btn-shannon" href="Shannon_Resume.pdf">Download Resume!</a>
       </div>
       <div class="row">
           <p>Hello World!</p>
@@ -95,9 +95,9 @@
                  <footer>Shannon</footer>
           </blockquote>  
           <p>  My Numbers:  <script>document.write(addNumbers(1,2));  </script>  </p>
-          <div ng-app="">
+
             <p>My first expression: {{ 5 + 5 }}</p>
-          </div>
+
         </div>
         <div class="row">
           <h2> Education </h2>
@@ -111,18 +111,24 @@
           <div class="container">
           <h2> Skills </h2>
             <!--<span class="col-sm-3 label label-success">Success Label</span>  MAKING THE LABELS BIGGER IF YOU WANT-->
-            <h4> Languages </h4>
-              <span class="label label-success">Success Label</span>
-              <span class="label label-success">Success Label</span>
-              <span class="label label-success">Success Label</span>
-            <h4> Tools </h4>
-              <span class="label label-success">Success Label</span>
-              <span class="label label-success">Success Label</span>
-              <span class="label label-success">Success Label</span>
-            <h4> Frameworks </h4>
-              <span class="label label-success">Success Label</span>
-              <span class="label label-success">Success Label</span>
-              <span class="label label-success">Success Label</span>
+            <h4 class="skillsLanguages"> Languages </h4>
+            <div ng-init="languages=['Java','Ruby','Python']">
+              <span ng-repeat="l in languages">
+                <span class="label label-success">{{l}}</span>
+              </span>
+            </div>
+            <h4 class="skillsTools"> Tools </h4>
+            <div ng-init="tools=['Jani','Hege','Kai']">
+              <span ng-repeat="t in tools">
+                <span class="label label-success">{{t}}</span>
+              </span>
+            </div>
+            <h4 class="skillsFrameworks"> Frameworks </h4>
+            <div ng-init="frameworks=['What','Is','This']">
+              <span ng-repeat="f in frameworks">
+                <span class="label label-success">{{f}}</span>
+              </span>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -163,7 +169,10 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" ng-init="awards=[
+            {name:'Jani',year:'Norway'},
+            {name:'Hege',year:'Sweden'},
+            {name:'Kai',year:'Denmark'}]">
           <h2>Awards</h2>
           <table class="table table-condensed table-striped">
             <thead>
@@ -173,17 +182,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Years</td>
-                <td>Award aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-              </tr>
-              <tr>
-                <td>Years</td>
-                <td>Award aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-              </tr>
-              <tr>
-                <td>Years</td>
-                <td>Award aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
+              <tr ng-repeat="x in awards | orderBy : 'year'">
+                <td>{{ x.year }}</td>
+                <td>{{ x.name }}</td>
               </tr>
             </tbody>
           </table>
