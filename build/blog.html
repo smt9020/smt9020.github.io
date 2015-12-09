@@ -13,23 +13,21 @@
 
 
 	<div class="col-md-12">
-		<div class="row">
-			<h1>Article Title</h1>
-			<p>
-				article text!
-				<a href="http://www.joecolantonio.com/2015/09/22/5-things-your-boss-doesnt-understand-about-test-automation/">THIS</a>
-				<a href="http://www.joecolantonio.com/2015/09/14/getting-started-with-test-automation/">Getting Started by Joe Colantonio</a>
-			</p>
+		<div ng-app="myApp" ng-controller="personCtrl">
+			<p>It would be cool if this could search through articles</p>
+			Search: <input type="text" ng-model="firstName"><br>
 		</div>
 
-		<div ng-app="myApp" ng-controller="personCtrl">
-			First Name: <input type="text" ng-model="firstName"><br>
-			Last Name: <input type="text" ng-model="lastName"><br>
-			<br>
-			Full Name: {{firstName + " " + lastName}}
-		</div>
+		<div class="row">
+          <h2> Posts </h2>
+            <div class="panel-group">
+              @@include('./posts/post1.html')
+              @@include('./posts/post2.html')
+            </div>
+        </div>
 
 	</div>
+
 </div>
 
 
