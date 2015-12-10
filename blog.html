@@ -27,7 +27,7 @@
                 </div>
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Profile</a></li>
+                        <li><a href="index.html">Profile</a></li>
                         <li><a href="index.html">Resume</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="index.html">Contact</a></li>
@@ -65,42 +65,37 @@
 	<div class="col-md-12">
 		<div ng-app="myApp" ng-controller="personCtrl">
 			<p>It would be cool if this could search through articles</p>
-			First Name: <input type="text" ng-model="firstName"><br>
-			Last Name: <input type="text" ng-model="lastName"><br>
-			<br>
-			Full Name: {{firstName + " " + lastName}}
+			Search: <input type="text" ng-model="firstName"><br>
 		</div>
 
 		<div class="row">
-          <h2> Activities -> collapsable panel</h2>
+          <h2> Posts </h2>
             <div class="panel-group">
               <div class="panel panel-default">
   <div class="panel-heading">
     <h4 class="panel-title">
-      <a data-toggle="collapse" href="#collapse2">Collapsible panel</a>
+      <a data-toggle="collapse" href="#collapse2">Employee Recognition</a>
     </h4>
   </div>
   <div id="collapse2" class="panel-collapse collapse">
-    <div class="panel-body">Information on said Activity</div>
+    <div class="panel-body">
+      <div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" href="#collapse2">@@title</a>
+    </h4>
+  </div>
+  <div id="collapse2" class="panel-collapse collapse">
+    <div class="panel-body">
+      @@content
+    </div>
     <div class="panel-footer">Panel Footer</div>
   </div>
 </div>
-                            <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#collapse1">Article Title</a>
-                  </h4>
-                </div>
-                <div id="collapse1" class="panel-collapse collapse">
-                  <div class="panel-body">
-                      This is where all my text goes
-                      article text!
-            <a href="http://www.joecolantonio.com/2015/09/22/5-things-your-boss-doesnt-understand-about-test-automation/">THIS</a>
-            <a href="http://www.joecolantonio.com/2015/09/14/getting-started-with-test-automation/">Getting Started by Joe Colantonio</a>
-                  </div>
-                  <div class="panel-footer">Panel Footer</div>
-                </div>
-              </div>
+    </div>
+    <div class="panel-footer">Panel Footer</div>
+  </div>
+</div>
             </div>
         </div>
 
