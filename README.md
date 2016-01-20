@@ -1,7 +1,8 @@
 # smt9020.github.io
 
 
-To update you need to go into the builds folder and run "gulp"
+To update you need to go into the build folder and run "gulp"
+Make all your edits in the build folder as well. 
 
 Technologies in Use:
 
