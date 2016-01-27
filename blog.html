@@ -149,6 +149,34 @@
                   <!--<div class="panel-footer">Panel Footer</div>-->
                 </div>
               </div>
+              <div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" href="#collapse4">Selenium - what makes a good framework?</a>
+    </h4>
+  </div>
+  <div id="collapse4" class="panel-collapse collapse">
+    <div class="panel-body">
+    	<p> I'm sure there is a lot more to it then this, but over time I hope to compile a list of things you need for a good Selenium framework.  "Good" is going to mean something different to everyone, and is going to depend a lot on who your audience is.  In many projects, your audience is the developers who want to be able to test basic functionality of their web app over and over without having to do it manually.  It's also common to see selenium wrapped in continuous integration solutions like <a href= "https://wiki.jenkins-ci.org/display/JENKINS/Selenium+Plugin">Jenkins</a> or TeamCity.  My audience in this case is the QA group.  How can we create a maintainable group of tests that can be run and maintained during regression testing by Test Engineers who do not have experience with coding? There are several building blocks for creating a Selenium framework that BOTH soltutions may find useful. </p>
+
+      <ul>
+        <li><b> Test Input </b></li>
+          <p> A way of structuring the parameters of your test so that you can run the same test over and over with different boundary cases.  If your audiences is mostly tech-saavy developers, you can do this with command line arguments.  If they are not, you can do this with a custom runner, or supplying a spreadsheet that your test can parse. Alternatively you can create a custom connecttion of your Selenium framework to test management solutions such as HP QC, and use the parameter support that comes with that. </p>
+        <li><b> Object Repository </b></li>
+           <p> Organizing your page objects so that you can reference them with a friendly-name, and also only have to make a change in one place when a UI change will alter your test or break it.  This can be as simple as a class of constants with xpaths to identify different buttons on a screen.  It could also take the form of a spreadsheet. </p>
+        <li><b> Assertions and Reporting </b></li>
+        <li><b> Libraries </b></li>
+          <p> Broken down by page = Useful more when your audience is development </p>
+          <p> Abstract with methods such as "click element" = Useful more when your audience is QA </p>
+        <li><b> Version Control </b></li>
+          <p> Obviously you need to version control your Selenium code.  But what about controlling which versions of the test work on which versions of the product you are testing?  You need to have a way of versioning your object repository and your task flow based on which version of the product that test will work on. </p>
+      </ul>
+
+
+    </div>
+    <div class="panel-footer">Panel Footer</div>
+  </div>
+</div>
             </div>
         </div>
 
