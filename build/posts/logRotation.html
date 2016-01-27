@@ -1,0 +1,38 @@
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse2">Redirected Output with Log Rotation</a>
+                  </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p> I'm trying to output my exe to a file on the command line, so I do something like...</p>
+                    <p class="well"> <code> myExecutable.exe > myLog.log</code></p>
+                    <p> And that totally works.  And then I want to search through the log file for any error or disconnect messages from my executable, something like...</p>
+                    <div class="well"> <code> <p>  @echo off </p>
+                        <p>for %%i in (.\myLog.log) do (</p>
+                        <p>FINDSTR "error" %%i >> myfinds.txt</p>
+                        <p>)</p>
+                    </code></div>
+                    <p> This also works. Now I have all of my error statements in one <code>myFinds.txt</code> file (The logging has timestamps associated with each line, so if I can pull out the errors I can look at it in one place and go to the other log files as needed to see what was around the failures).  The problem is that the <code>myLog.log</code> file gets really large; too large to maintain.  So after I do my find I want to empty the file out or rename it to something like <code>myLog.log.1272016</code>.  When I do that, I get this error message: </p>
+                    <p><code> This process cannot access the file because it is being used by another process </code></p> 
+                    <p> The executable is still constantly pumping output data into <code>myLog.log</code>so I can't grab ahold of it to change it in anyway. One would think, of course there is an easy fix on te internet! But I haven't been able to find one, so here's what I got so far:</p>
+
+                    <ul>
+                      <li> <a href="http://linux.101hacks.com/unix/tee-command-examples/">tee</a> command for windows.  Gotta love <a href="http://stackoverflow.com/questions/11239924/windows-batch-tee-command">StackOverflow</a></li>
+                      <p> I could send my output to multiple files this way? But I'm not sure if I would then be able to edit a subset while still running my exe.  Wait also could I not just do this in powershell?</p>
+                      <li><span class="label label-success">Success!</span> Create a C# solution that will set a rollover limit</li>
+                      <p> Gather more info on this...</p>
+                      <li><span class="label label-success">Success?</span>logrotate (on linux but I have Windows so <a href="https://github.com/plecos/logrotatewin"> logrotatewin</a>)</li>
+                        <p> I found this online, and it looks encouraging.  but in order to use the windows file there is setup.exe I have to run? which seems a little shady</p>
+                      <li>Stop the .exe rename my log file and start the .exe</li>
+                          <p> The exe I'm running will keep running until I cancel it.  So if I stop it, quickly rename my file, and restart it, it doesn't change what the executable is actually doing.  But then I run the risk that something important will happen during the time that the executable is stopped and I will miss it.  So this is probably not a good solution for me. </p>
+                      <li>Change my output redirect line to <code> myExecutable.exe | find "error" > myLog.log</code> </li>
+                          <p> This works, I get all the lines in the file where errors are mentioned.  But then I lose the context because I'm not saving any of the other log information. So this probably isn't my best bet either</p>
+                    </ul>  
+
+
+                  </div>
+                  <!--<div class="panel-footer">Panel Footer</div>-->
+                </div>
+              </div>
