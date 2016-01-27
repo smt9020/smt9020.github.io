@@ -6,9 +6,14 @@
                 </div>
                 <div id="collapse1" class="panel-collapse collapse">
                   <div class="panel-body">
-                      Great Articles:
-            <a href="http://www.joecolantonio.com/2015/09/22/5-things-your-boss-doesnt-understand-about-test-automation/">THIS</a>, 
-            <a href="http://www.joecolantonio.com/2015/09/14/getting-started-with-test-automation/">Getting Started by Joe Colantonio</a>
+                    <p> If you are really going to start working with QC and UFT, there are going to be a couple of new influences in your life.  #1) Joe Colantonio.  I literally mention him by name around my office. 2) That guy in some of the forums with Dexter (from Cartoon Network) as his picture.  He is also amazing.  I should really go back and try and find his username. 
+                      <p>Great Articles:</p>
+            <p><a href="http://www.joecolantonio.com/2015/09/22/5-things-your-boss-doesnt-understand-about-test-automation/">What Your Boss Doesn't Understand About Test Automation</a>, </p>
+            <p><a href="http://www.joecolantonio.com/2015/09/14/getting-started-with-test-automation/">Getting Started by Joe Colantonio</a></p>
+
+            <p> Another tried and true example of functions written by Joe using OTA that I will reference time and again: <a href="http://www.joecolantonio.com/2010/08/17/how-to-save-and-retrieve-a-qc-test-resource/"> Uploading a resource </a>
+
+            <p> <a href="http://www.joecolantonio.com/2014/01/09/uft-api-how-to-data-drive-your-script-using-an-alm-resource/">Service Test Data Driving</a> This article was really really helpful, especially because a lot of what I was doing when I first starting working with UFT was surrounding API and Service testing.  He misses something at the end of step 3.  He says that you have to go into the Test Configurations > Data tab in order to mark your test as dynamic and reference the datasheet.  Which is all correct.  But THEN you have to click the map button on the right of that which he doesn't show, and map all your parameters again.  If you don't do that, then it will always use the values from the datasheet you updated to UFT, and it won't run based on your updates to Test Resources.  But once you enter in those mapping values you might see something like this....<code> Index was out of range. Must be non-negative and less than the size of the collection </code>.....  THAT means that you need to delete the mappings that you just put in.  Good news is, you won't have the problem of your test resources not updating anymore. Bad news is you feel like this was a waste of your time. I &gt;3 HP </p>
                   </div>
                   <!--<div class="panel-footer">Panel Footer</div>-->
                 </div>
