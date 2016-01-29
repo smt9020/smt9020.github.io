@@ -12,7 +12,7 @@
         <li><b> Test Input </b></li>
           <p> A way of structuring the parameters of your test so that you can run the same test over and over with different boundary cases.  If your audiences is mostly tech-saavy developers, you can do this with command line arguments.  If they are not, you can do this with a custom runner, or supplying a spreadsheet that your test can parse. Alternatively you can create a custom connecttion of your Selenium framework to test management solutions such as HP QC, and use the parameter support that comes with that. </p>
         <li><b> Object Repository </b></li>
-           <p> Organizing your page objects so that you can reference them with a friendly-name, and also only have to make a change in one place when a UI change will alter your test or break it.  This can be as simple as a class of constants with xpaths to identify different buttons on a screen.  It could also take the form of a spreadsheet. </p>
+           <p> Organizing your page objects so that you can reference them with a friendly-name, and also only have to make a change in one place when a UI change will alter your test or break it.  This can be as simple as a class of constants with xpaths to identify different buttons on a screen.  It could also take the form of a spreadsheet. <b>What about sharing my object repositories between pages? How do we know which ObjRepos to load in? ...still investigating...</b> </p>
         <li><b> Assertions and Reporting </b></li>
           <p> using NUnit or JUnit for assertions is a pretty easy win.  And then you can create your own logging, or get really fancy and use something like log4net. </p>
         <li><b> Libraries </b></li>
@@ -22,6 +22,14 @@
           <p> Obviously you need to version control your Selenium code.  But what about controlling which versions of the test work on which versions of the product you are testing?  You need to have a way of versioning your object repository and your task flow based on which version of the product that test will work on. </p>
         <li><b> Batch Runner </b></li>
           <p> <a href="https://blogs.perficient.com/multi-shoring/blog/2013/05/23/selenium-test-automation-using-ant/">Apache ANT</a> for batch execution on many manual testers machines. </p>
+        <li><b> Screenshots during runs </b></li>
+          <p> Do we want to take screen shots during our runs of the test? Or at particular key moments? Maybe whenever there is fail? how would this work?  Could this be leveraged for language testing? </p>
+        <li><b> List of Best Practices for Developers </b></li>
+          <p> There should be a list of best practices for automation developers.  See this article <a href="https://mestachs.wordpress.com/2012/08/13/selenium-best-practices/">Selenium Best Practices</a>.  There should also be one for application developers, that outlines things <i>they</i> can do to make automation of the webpages easier.  For example, making sure all their elements are associated with unique IDs</p>
+        <li><b> Every Test should clean itself up </b></li>
+          <p> </p>
+        <li><b> Can you use Selenium with an Emulator? </b></li>
+         <p> It only does web pages, so really I think this would only mean "can you have a small screen" to which the answer is yes? </p>
       </ul>
 
 
