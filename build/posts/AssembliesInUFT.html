@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" href="#collapse6">Using Assemblies in Vbscript and C# (UFT)</a>
+    </h4>
+  </div>
+  <div id="collapse6" class="panel-collapse collapse">
+    <div class="panel-body">
+      <p> These directions were meant for someone using UFT and wanting to also use their own .dlls as part of the code (which can really come in handy).  But it is probably also useful for anyone using vbscript that needs to incorporate C# code for some reason.  Here are the different wats I found to do this: </p>
+
+<h3>VBSCRIPT:</h3> 
+<div class="well">
+<code>strFile = "C:\\Users\\me\\ShannonPractice.dll" <br>
+Set oCustom = DotNetFactory.CreateInstance("MyNamespace.PublicClass", strFile) <br>
+MsgBox oCustom.myMethod 'this will give you whatever the method would return </code>
+</div>
+
+
+<h3>C# (UFT Specific Version): </h3>
+<ol>
+  <li>In the CustomCode test, click View> Solution Explorer</li>
+  <li>Right click on References and select Add Reference…</li>
+  <li>In the Add Reference dialog, click on the .Net Assembly Browser tab and navigate to the location where you have your DLL</li>
+  <li>Select each DLL and click Select</li>
+  <li>Click Ok</li>
+  <li>In the TestUserCode.cs, add the appropriate using namespace statements.</li>
+  <li>Now in TestUserCode.cs you can type something like (new PublicClass().myMethod()) and actually use the methods from the DLL </li>
+</ol>
+
+<h3>C# (Load during run time): </h3>
+<div class="well">
+<code>
+using System.Reflection; <br>
+      …<br>
+var myDLL = Assembly.LoadFile(@"C:\ShannonPractice.dll"); <br>
+var theType = myDLL.GetType("ShannonPractice.PublicClass"); <br>
+var c = Activator.CreateInstance(theType);<br>
+var method = theType.GetMethod("myString");<br>
+method.Invoke(c, null);<br>
+</code>
+</div>
+
+    </div>
+    <!--<div class="panel-footer">Panel Footer</div>-->
+  </div>
+</div>

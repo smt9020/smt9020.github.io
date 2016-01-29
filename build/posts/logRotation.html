@@ -9,10 +9,11 @@
                     <p> I'm trying to output my exe to a file on the command line, so I do something like...</p>
                     <p class="well"> <code> myExecutable.exe > myLog.log</code></p>
                     <p> And that totally works.  And then I want to search through the log file for any error or disconnect messages from my executable, something like...</p>
-                    <div class="well"> <code> <p>  @echo off </p>
-                        <p>for %%i in (.\myLog.log) do (</p>
-                        <p>FINDSTR "error" %%i >> myfinds.txt</p>
-                        <p>)</p>
+                    <div class="well"> <code>
+                        @echo off<br>
+                        for %%i in (.\myLog.log) do (<br>
+                        FINDSTR "error" %%i >> myfinds.txt<br>
+                        )
                     </code></div>
                     <p> This also works. Now I have all of my error statements in one <code>myFinds.txt</code> file (The logging has timestamps associated with each line, so if I can pull out the errors I can look at it in one place and go to the other log files as needed to see what was around the failures).  The problem is that the <code>myLog.log</code> file gets really large; too large to maintain.  So after I do my find I want to empty the file out or rename it to something like <code>myLog.log.1272016</code>.  When I do that, I get this error message: </p>
                     <p><code> This process cannot access the file because it is being used by another process </code></p> 

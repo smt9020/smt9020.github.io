@@ -14,11 +14,14 @@
         <li><b> Object Repository </b></li>
            <p> Organizing your page objects so that you can reference them with a friendly-name, and also only have to make a change in one place when a UI change will alter your test or break it.  This can be as simple as a class of constants with xpaths to identify different buttons on a screen.  It could also take the form of a spreadsheet. </p>
         <li><b> Assertions and Reporting </b></li>
+          <p> using NUnit or JUnit for assertions is a pretty easy win.  And then you can create your own logging, or get really fancy and use something like log4net. </p>
         <li><b> Libraries </b></li>
           <p> Broken down by page = Useful more when your audience is development </p>
           <p> Abstract with methods such as "click element" = Useful more when your audience is QA </p>
         <li><b> Version Control </b></li>
           <p> Obviously you need to version control your Selenium code.  But what about controlling which versions of the test work on which versions of the product you are testing?  You need to have a way of versioning your object repository and your task flow based on which version of the product that test will work on. </p>
+        <li><b> Batch Runner </b></li>
+          <p> <a href="https://blogs.perficient.com/multi-shoring/blog/2013/05/23/selenium-test-automation-using-ant/">Apache ANT</a> for batch execution on many manual testers machines. </p>
       </ul>
 
 
