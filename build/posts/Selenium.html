@@ -12,9 +12,9 @@
         <li><b> Test Input </b></li>
           <p> A way of structuring the parameters of your test so that you can run the same test over and over with different boundary cases.  If your audiences is mostly tech-saavy developers, you can do this with command line arguments.  If they are not, you can do this with a custom runner, or supplying a spreadsheet that your test can parse. Alternatively you can create a custom connecttion of your Selenium framework to test management solutions such as HP QC, and use the parameter support that comes with that. </p>
         <li><b> Object Repository </b></li>
-           <p> Organizing your page objects so that you can reference them with a friendly-name, and also only have to make a change in one place when a UI change will alter your test or break it.  This can be as simple as a class of constants with xpaths to identify different buttons on a screen.  It could also take the form of a spreadsheet. <b>What about sharing my object repositories between pages? How do we know which ObjRepos to load in? ...still investigating...</b> </p>
+           <p> Organizing your page objects so that you can reference them with a friendly-name, and also only have to make a change in one place when a UI change will alter your test or break it.  This can be as simple as a class of constants with xpaths to identify different buttons on a screen.  It could also take the form of a spreadsheet. Load your spreadsheet into an ObjectRepository object so that you can do things like <code>ObjectRepo("button-name").Click(1)</code>. <b>What about sharing my object repositories between pages? How do we know which ObjRepos to load in? ...still investigating...</b> </p>
         <li><b> Assertions and Reporting </b></li>
-          <p> using NUnit or JUnit for assertions is a pretty easy win.  And then you can create your own logging, or get really fancy and use something like log4net. </p>
+          <p> Using NUnit or JUnit for assertions is a pretty easy win.  And then you can create your own logging, or get really fancy and use something like log4net. </p>
         <li><b> Libraries </b></li>
           <p> Broken down by page = Useful more when your audience is development </p>
           <p> Abstract with methods such as "click element" = Useful more when your audience is QA </p>
