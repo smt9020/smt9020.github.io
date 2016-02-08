@@ -110,6 +110,20 @@
         
 
 
+
+        <div class="row">
+            <h2>Project Contributions</h2>
+            <div class="list-group">
+              <a href="http://www.se.rit.edu/~ulysses/" class="list-group-item">Trillium Health Grant Management</a>
+              <a href="https://www.rit.edu/gccis/news/team-presents-research-related-android-application-security" class="list-group-item">Android Permissions Gap Analysis</a>
+              <a href="https://github.com/andymeneely/chromium-history" class="list-group-item">Chromium History Analysis</a>
+              <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=%E2%80%9CEscaping+Disaster+Together:+An+Agent+Based+Model+of+Evacuation+for+Family+Units%E2%80%9D" class="list-group-item">NetLogo</a>
+            </div>
+        </div>
+
+
+
+
         <div class="row">
           <h2> Skills </h2>
             <!--<span class="col-sm-3 label label-success">Success Label</span>  MAKING THE LABELS BIGGER IF YOU WANT-->
@@ -120,9 +134,33 @@
               </span>
             </div>
             <h4 class="skillsTools"> QA Tools </h4>
-            <div ng-init="tools=['HP Application Lifecycle Management (HP Quality Center)', 'HP Unified Functional Testing (HP QuickTest Professional)', 'Selenium Suite']">
+            <div ng-init="tools=['HP Application Lifecycle Management (HP Quality Center)', 'HP Unified Functional Testing (HP QuickTest Professional)', 'Selenium Suite', 'SoapUI', 'JUnit', 'NUnit', 'Jasmine']">
               <span ng-repeat="t in tools">
-                <span class="label label-success">{{t}}</span>
+                <span class="label label-success">{{t}}</span> <br>
+              </span>
+            </div>
+            <h4 class="skillsCI"> Continuous Integration </h4>
+            <div ng-init="ci=['Jenkins','TeamCity']">
+              <span ng-repeat="c in ci">
+                <span class="label label-success">{{c}}</span>
+              </span>
+            </div>
+            <h4 class="skillsSC"> Source Control </h4>
+            <div ng-init="sControl=['Perforce','Git','SVN']">
+              <span ng-repeat="sc in sControl">
+                <span class="label label-success">{{sc}}</span>
+              </span>
+            </div>
+            <h4 class="skillsWeb"> Web Dev </h4>
+            <div ng-init="web=['Javascript', 'CSS', 'Gulp', 'Bootstrap', 'HTML', 'Angular']">
+              <span ng-repeat="w in web">
+                <span class="label label-success">{{w}}</span>
+              </span>
+            </div>
+            <h4 class="skillsMethodologies"> Methodologies </h4>
+            <div ng-init="methods=['Scrum','Kanban','Waterfall','RUP']">
+              <span ng-repeat="m in methods">
+                <span class="label label-success">{{m}}</span>
               </span>
             </div>
             <h4 class="skillsOther"> Other </h4>
@@ -169,25 +207,23 @@
             </div>
         </div>-->
 
-       
-
-        <div class="row">
-            <h2>Project Contributions</h2>
-            <div class="list-group">
-              <a href="https://www.rit.edu/gccis/news/team-presents-research-related-android-application-security" class="list-group-item">Android Permissions Gap Analysis</a>
-              <a href="https://github.com/andymeneely/chromium-history" class="list-group-item">Chromium History Analysis</a>
-              <a href="http://www.se.rit.edu/~ulysses/" class="list-group-item">Trillium Health Grant Management</a>
-              <a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=%E2%80%9CEscaping+Disaster+Together:+An+Agent+Based+Model+of+Evacuation+for+Family+Units%E2%80%9D" class="list-group-item">NetLogo</a>
-            </div>
-        </div>
+      
 
 
 
         <div class="row" ng-init="awards=[
             {name:'Lenel Hackathon 3rd Place',year:'2015'},
             {name:'RIT Senior Project finalist for GREAT awards',year:'2015'},
-            {name:'Android Permissions Gap project 1st Place Regional IEEE Conference Poster Session (Western, NY)',year:'2015'}]">
-          <h2>Awards</h2>
+            {name:'Android Permissions Gap project 1st Place Regional IEEE Conference Poster Session (Western, NY)',year:'2015'},
+            {name:'Personal Success Skills Leadership Certificate from RIT',year:'2014'},
+            {name:'Outstanding Undergraduate Scholar Award',year:'2014'},
+            {name:'Tri Sigma Foundation Scholarship',year:'2014'},
+            {name:'Nathaniel Rochester Society Scholar',year:'2014'},
+            {name:'Alfred L. and Ruby C. Davis Leadership Award',year:'2014'},
+            {name:'GCCIS Alumni Association Scholarship',year:'2012-14'},
+            {name:'Women’s Council of RIT Endowed Scholarship',year:'2013'}
+            ]">
+          <h2>Recognition</h2>
           <table class="table table-condensed table-striped">
             <thead>
               <tr>
@@ -196,7 +232,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="x in awards | orderBy : 'year'">
+              <tr ng-repeat="x in awards | orderBy : '-year'">
                 <td>{{ x.year }}</td>
                 <td>{{ x.name }}</td>
               </tr>

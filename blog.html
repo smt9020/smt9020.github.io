@@ -71,6 +71,19 @@
 		<div class="row">
           <h2> Posts </h2>
             <div class="panel-group">
+              <div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" href="#collapse9">Keyword VS Data Driven Testing frameworks</a>
+    </h4>
+  </div>
+  <div id="collapse9" class="panel-collapse collapse">
+    <div class="panel-body">
+    	<p> <b><a href="http://m.softwaretestinggenius.com/?page=details&url=pros-and-cons-of-data-driven-versus-keyword-driven-automation-frameworks">Software Testing Genius</a></b>The English is a little broken here but it does a nice and quick job of explaining what the difference is and general pros and cons. </p>
+    </div>
+    <!--<div class="panel-footer">Panel Footer</div>-->
+  </div>
+</div>
                             <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
@@ -87,65 +100,6 @@
                     <p> Another tried and true example of functions written by Joe using OTA that I will reference time and again: <a href="http://www.joecolantonio.com/2010/08/17/how-to-save-and-retrieve-a-qc-test-resource/"> Uploading a resource </a>
 
                     <p> <a href="http://www.joecolantonio.com/2014/01/09/uft-api-how-to-data-drive-your-script-using-an-alm-resource/">Service Test Data Driving</a> This article was really really helpful, especially because a lot of what I was doing when I first starting working with UFT was surrounding API and Service testing.  He misses something at the end of step 3.  He says that you have to go into the Test Configurations > Data tab in order to mark your test as dynamic and reference the datasheet.  Which is all correct.  But THEN you have to click the map button on the right of that which he doesn't show, and map all your parameters again.  If you don't do that, then it will always use the values from the datasheet you updated to UFT, and it won't run based on your updates to Test Resources.  But once you enter in those mapping values you might see something like this....<code> Index was out of range. Must be non-negative and less than the size of the collection </code>.....  THAT means that you need to delete the mappings that you just put in.  Good news is, you won't have the problem of your test resources not updating anymore. Bad news is you feel like this was a waste of your time. I &lt;3 HP </p>
-                  </div>
-                  <!--<div class="panel-footer">Panel Footer</div>-->
-                </div>
-              </div>
-                            <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#collapse2">Redirected Output with Log Rotation</a>
-                  </h4>
-                </div>
-                <div id="collapse2" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <p> I'm trying to output my exe to a file on the command line, so I do something like...</p>
-                    <p class="well"> <code> myExecutable.exe > myLog.log</code></p>
-                    <p> And that totally works.  And then I want to search through the log file for any error or disconnect messages from my executable, something like...</p>
-                    <div class="well"> <code>
-                        @echo off<br>
-                        for %%i in (.\myLog.log) do (<br>
-                        FINDSTR "error" %%i >> myfinds.txt<br>
-                        )
-                    </code></div>
-                    <p> This also works. Now I have all of my error statements in one <code>myFinds.txt</code> file (The logging has timestamps associated with each line, so if I can pull out the errors I can look at it in one place and go to the other log files as needed to see what was around the failures).  The problem is that the <code>myLog.log</code> file gets really large; too large to maintain.  So after I do my find I want to empty the file out or rename it to something like <code>myLog.log.1272016</code>.  When I do that, I get this error message: </p>
-                    <p><code> This process cannot access the file because it is being used by another process </code></p> 
-                    <p> The executable is still constantly pumping output data into <code>myLog.log</code>so I can't grab ahold of it to change it in anyway. One would think, of course there is an easy fix on te internet! But I haven't been able to find one, so here's what I got so far:</p>
-
-                    <ul>
-                      <li> <a href="http://linux.101hacks.com/unix/tee-command-examples/">tee</a> command for windows.  Gotta love <a href="http://stackoverflow.com/questions/11239924/windows-batch-tee-command">StackOverflow</a></li>
-                      <p> I could send my output to multiple files this way? But I'm not sure if I would then be able to edit a subset while still running my exe.  Wait also could I not just do this in powershell?</p>
-                      <li><span class="label label-success">Success!</span> Create a C# solution that will set a rollover limit</li>
-                      <p> Gather more info on this...a LOT of what I am seeing is that I have to use log4net which seems insane that I couldnt just have a simpler option.</p>
-                      <P> <a href="http://www.dotnetperls.com/redirectstandardoutput">Running an exe and redirecting the output using C#.  Easy peasy.</a> </p>
-                      <p> <a href="http://stackoverflow.com/questions/10349536/having-a-log-per-day"> log4net solution to rolling daily logs</a></p>
-                      <li><span class="label label-success">Success?</span>logrotate (on linux but I have Windows so <a href="https://github.com/plecos/logrotatewin"> logrotatewin</a>)</li>
-                        <p> I found this online, and it looks encouraging.  but in order to use the windows file there is setup.exe I have to run? which seems a little shady</p>
-                      <li>Stop the .exe rename my log file and start the .exe</li>
-                          <p> The exe I'm running will keep running until I cancel it.  So if I stop it, quickly rename my file, and restart it, it doesn't change what the executable is actually doing.  But then I run the risk that something important will happen during the time that the executable is stopped and I will miss it.  So this is probably not a good solution for me. </p>
-                      <li>Change my output redirect line to <code> myExecutable.exe | find "error" > myLog.log</code> </li>
-                          <p> This works, I get all the lines in the file where errors are mentioned.  But then I lose the context because I'm not saving any of the other log information. So this probably isn't my best bet either</p>
-                    </ul>  
-
-
-                  </div>
-                  <!--<div class="panel-footer">Panel Footer</div>-->
-                </div>
-              </div>
-                            <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#collapse3">Different POV on Agile</a>
-                  </h4>
-                </div>
-                <div id="collapse3" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <a href="http://www.cio.com/article/2385322/agile-development/why-agile-isn-t-working--bringing-common-sense-to-agile-principles.html"> Ways Agile can be flawed </a>
-                    <p> In this article the author points out 3 agile principles that can be interpretted in a way that can hinder your project's progress.<p>
-                    <p> I have heard #1, <b>delivery over quality</b>, from people over and over again and have seen it myself. Getting things to a deliverable state as soon as possible can lead to a line of thinking that ignores the future.  You are expected to develop exactly to the story description and nothing more.  Then when it's time to do another story you have to go back and rework what was done in story #1 to figure out how you will add in story #2.  
-                    <p>Another point of this article: "agile promotes the practice of ignoring defects".  When a defect is found, it is thrown into an endless queue of defects.  So then you end up adding on iterations to deal with all the defects, or simply "deferring" them in order to fit in new features.  Whether or not those deferred defects ever surface again is on a team to team basis I would imagine.  </p>
-                    <p> His third point, <b>collaboration over management</b>, I have not experienced; of teams I have been on most of the Scrum Masters have had a pretty firm grip on the direction of the team and the project. I <i>have</i> seen a lack of collaboration amongst the different team roles.  I have primarily sat as a QA rep on agile teams, and have seen struggles with collaborating with the whole of the QA department (as to ensure consistency and collaboration amongst projects).  I have also seen teams struggle with the idea of being "told what to test".  QA should be deciding to what degree each feature is tested based on their knowledge of the project.  Occasionally team members will "suggest" that certain things don't need to be tested together, and in the isolation of an agile team it can be convincing. You will be pressured to agree, and not a team player if you test outside the promoted confines. </p>
-
                   </div>
                   <!--<div class="panel-footer">Panel Footer</div>-->
                 </div>
@@ -186,7 +140,7 @@
 
 
     </div>
-    <div class="panel-footer">Panel Footer</div>
+    <div class="panel-footer">More to come...</div>
   </div>
 </div>
               <div class="panel panel-default">
@@ -257,6 +211,65 @@ method.Invoke(c, null);<br>
     <div class="panel-footer">More to come...</div>
   </div>
 </div>
+                            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse2">Redirected Output with Log Rotation</a>
+                  </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <p> I'm trying to output my exe to a file on the command line, so I do something like...</p>
+                    <p class="well"> <code> myExecutable.exe > myLog.log</code></p>
+                    <p> And that totally works.  And then I want to search through the log file for any error or disconnect messages from my executable, something like...</p>
+                    <div class="well"> <code>
+                        @echo off<br>
+                        for %%i in (.\myLog.log) do (<br>
+                        FINDSTR "error" %%i >> myfinds.txt<br>
+                        )
+                    </code></div>
+                    <p> This also works. Now I have all of my error statements in one <code>myFinds.txt</code> file (The logging has timestamps associated with each line, so if I can pull out the errors I can look at it in one place and go to the other log files as needed to see what was around the failures).  The problem is that the <code>myLog.log</code> file gets really large; too large to maintain.  So after I do my find I want to empty the file out or rename it to something like <code>myLog.log.1272016</code>.  When I do that, I get this error message: </p>
+                    <p><code> This process cannot access the file because it is being used by another process </code></p> 
+                    <p> The executable is still constantly pumping output data into <code>myLog.log</code>so I can't grab ahold of it to change it in anyway. One would think, of course there is an easy fix on te internet! But I haven't been able to find one, so here's what I got so far:</p>
+
+                    <ul>
+                      <li> <a href="http://linux.101hacks.com/unix/tee-command-examples/">tee</a> command for windows.  Gotta love <a href="http://stackoverflow.com/questions/11239924/windows-batch-tee-command">StackOverflow</a></li>
+                      <p> I could send my output to multiple files this way? But I'm not sure if I would then be able to edit a subset while still running my exe.  Wait also could I not just do this in powershell?</p>
+                      <li><span class="label label-success">Success!</span> Create a C# solution that will set a rollover limit</li>
+                      <p> Gather more info on this...a LOT of what I am seeing is that I have to use log4net which seems insane that I couldnt just have a simpler option.</p>
+                      <P> <a href="http://www.dotnetperls.com/redirectstandardoutput">Running an exe and redirecting the output using C#.  Easy peasy.</a> </p>
+                      <p> <a href="http://stackoverflow.com/questions/10349536/having-a-log-per-day"> log4net solution to rolling daily logs</a></p>
+                      <li><span class="label label-success">Success?</span>logrotate (on linux but I have Windows so <a href="https://github.com/plecos/logrotatewin"> logrotatewin</a>)</li>
+                        <p> I found this online, and it looks encouraging.  but in order to use the windows file there is setup.exe I have to run? which seems a little shady</p>
+                      <li>Stop the .exe rename my log file and start the .exe</li>
+                          <p> The exe I'm running will keep running until I cancel it.  So if I stop it, quickly rename my file, and restart it, it doesn't change what the executable is actually doing.  But then I run the risk that something important will happen during the time that the executable is stopped and I will miss it.  So this is probably not a good solution for me. </p>
+                      <li>Change my output redirect line to <code> myExecutable.exe | find "error" > myLog.log</code> </li>
+                          <p> This works, I get all the lines in the file where errors are mentioned.  But then I lose the context because I'm not saving any of the other log information. So this probably isn't my best bet either</p>
+                    </ul>  
+
+
+                  </div>
+                  <!--<div class="panel-footer">Panel Footer</div>-->
+                </div>
+              </div>
+                            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse3">Different POV on Agile</a>
+                  </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <a href="http://www.cio.com/article/2385322/agile-development/why-agile-isn-t-working--bringing-common-sense-to-agile-principles.html"> Ways Agile can be flawed </a>
+                    <p> In this article the author points out 3 agile principles that can be interpretted in a way that can hinder your project's progress.<p>
+                    <p> I have heard #1, <b>delivery over quality</b>, from people over and over again and have seen it myself. Getting things to a deliverable state as soon as possible can lead to a line of thinking that ignores the future.  You are expected to develop exactly to the story description and nothing more.  Then when it's time to do another story you have to go back and rework what was done in story #1 to figure out how you will add in story #2.  
+                    <p>Another point of this article: "agile promotes the practice of ignoring defects".  When a defect is found, it is thrown into an endless queue of defects.  So then you end up adding on iterations to deal with all the defects, or simply "deferring" them in order to fit in new features.  Whether or not those deferred defects ever surface again is on a team to team basis I would imagine.  </p>
+                    <p> His third point, <b>collaboration over management</b>, I have not experienced; of teams I have been on most of the Scrum Masters have had a pretty firm grip on the direction of the team and the project. I <i>have</i> seen a lack of collaboration amongst the different team roles.  I have primarily sat as a QA rep on agile teams, and have seen struggles with collaborating with the whole of the QA department (as to ensure consistency and collaboration amongst projects).  I have also seen teams struggle with the idea of being "told what to test".  QA should be deciding to what degree each feature is tested based on their knowledge of the project.  Occasionally team members will "suggest" that certain things don't need to be tested together, and in the isolation of an agile team it can be convincing. You will be pressured to agree, and not a team player if you test outside the promoted confines. </p>
+
+                  </div>
+                  <!--<div class="panel-footer">Panel Footer</div>-->
+                </div>
+              </div>
             </div>
         </div>
 
